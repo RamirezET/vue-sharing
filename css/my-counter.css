@@ -1,0 +1,6 @@
+.my-component-counter {
+    outline: none;
+    border: none;
+    background-color: transparent;
+    border: 1px solid firebrick;
+}
