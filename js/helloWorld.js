@@ -9,3 +9,7 @@ var vm = new Vue({
         }
     }
 })
+
+function changeWorld() {
+    document.getElementById('myHeader').innerHTML = document.getElementById('myHeaderInput').value
+}

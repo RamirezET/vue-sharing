@@ -8,12 +8,20 @@
 </head>
 <body>
 <div id="demo">
+    <h1>基于数据驱动</h1>
     <h1>Hello {{msg}}</h1>
     <div>
         <button @click="helloFuture">Hello Future</button>
     </div>
     <div>
         <input type="text" v-model="msg">
+    </div>
+</div>
+<div class="split-line"></div>
+<div id="baseOnDOM">
+    <h1 id="myHeader">基于DOM操作</h1>
+    <div>
+        <input id="myHeaderInput" type="text" oninput="changeWorld()">
     </div>
 </div>
 

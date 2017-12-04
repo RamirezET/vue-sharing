@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/RamirezET/vue-sharing#readme",
   "dependencies": {
+    "iview": "^2.7.4",
     "vue": "^2.5.9"
   }
 }
