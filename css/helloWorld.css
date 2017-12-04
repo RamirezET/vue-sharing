@@ -1,0 +1,30 @@
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+#demo {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 20%;
+}
+
+h1 {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    margin: 10px 0;
+}
+
+button {
+    outline: none;
+    background: transparent;
+    border: none;
+    border: 1px solid #666;
+    margin: 10px 0;
+}
+
+input {
+    margin: 10px 0;
+}
