@@ -20,8 +20,12 @@
 <div class="split-line"></div>
 <div id="baseOnDOM">
     <h1 id="myHeader">基于DOM操作</h1>
+    <h1>Hello <span id="helloTxt">Vue.js!</span></h1>
     <div>
-        <input id="myHeaderInput" type="text" oninput="changeWorld()">
+        <button onclick="changeFuture()">Hello Future</button>
+    </div>
+    <div>
+        <input id="myHeaderInput" type="text" oninput="changeWorld()" value="Vue.js!">
     </div>
 </div>
 

@@ -10,6 +10,13 @@ var vm = new Vue({
     }
 })
 
+//------------------------------------------------------------------------------------------------------------------------
+function changeFuture() {
+    document.getElementById('helloTxt').innerHTML = 'Future';
+    document.getElementById('myHeaderInput').value = 'Future';
+}
+
 function changeWorld() {
-    document.getElementById('myHeader').innerHTML = document.getElementById('myHeaderInput').value
+    document.getElementById('myHeader').innerHTML = document.getElementById('myHeaderInput').value;
+
 }
