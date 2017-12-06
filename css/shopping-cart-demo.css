@@ -1,0 +1,69 @@
+[v-cloak] {
+    display: none;
+}
+
+.shopping-cart-table {
+    margin: 10px auto;
+    empty-cells: show;
+    width: 100%;
+}
+
+.shopping-cart-table th, .shopping-cart-table td {
+    border: 1px solid #666;
+    padding: 8px 12px;
+}
+
+.shopping-cart-table th {
+    background-color: #999999;
+    color: #fff;
+    text-align: center;
+}
+
+.tbody tr {
+
+}
+
+.shopping-cart-table td {
+    text-align: center;
+}
+
+.shopping-cart-table td {
+    width: 10%;
+}
+
+.shopping-cart-table .item-pic img {
+    width: 100%;
+}
+
+.shopping-cart-table .item-name {
+    width: 35%;
+}
+
+.shopping-cart-table .item-count {
+    width: 13%;
+}
+
+.shopping-cart-table .item-count button {
+    width: 24.5px;
+    background-color: transparent;
+    border: 1px solid #444;
+    outline: none;
+}
+
+.shopping-cart-table .item-count button[disabled] {
+    background-color: #999;
+    color: #fff;
+}
+
+.total-price {
+    text-align: right;
+    color: crimson;
+    font-size: 20px;
+}
+
+.empty-box {
+    text-align: center;
+    margin-top: 15%;
+    font-size: 30px;
+    color: red;
+}

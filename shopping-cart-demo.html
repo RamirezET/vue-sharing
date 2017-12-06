@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <title>我的购物车</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/shopping-cart-demo.css">
+
+</head>
+<body>
+<div id="shoppingCart">
+    <div class="item" v-if="itemPriceData.length">
+        <table class="shopping-cart-table">
+            <thead>
+            <tr>
+                <th>序号</th>
+                <th>图片</th>
+                <th>名称</th>
+                <th>单价</th>
+                <th>数量</th>
+                <th>小计</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr v-for="(itemList,index) in itemPriceData " v-cloak>
+                <td>
+                    <button @click="removeItem(index)">{{index+1}}</button>
+                </td>
+                <td class="item-pic">
+                    <img :src='"https://img11.360buyimg.com/n2/"+itemList.productLogo' alt="">
+                </td>
+                <td class="item-name">{{itemList.productName}}</td>
+                <td>¥{{itemList.currentPrice}}</td>
+                <td class="item-count">
+                    <button @click="reduceCount(index)"
+                            :disabled="itemList.isBuy==1">-
+                    </button>
+                    {{itemList.isBuy}}
+                    <button @click="addCount(index)">+</button>
+                </td>
+                <td>¥{{itemList.isBuy*itemList.currentPrice}}</td>
+            </tr>
+            </tbody>
+        </table>
+        <div class="total-price">总价格：¥{{totalPrice}}</div>
+    </div>
+    <div class="empty-box" v-else>穷*！购物车里都没东西，跟咸鱼有什么分别！</div>
+</div>
+<script src="node_modules/vue/dist/vue.js"></script>
+<script src="js/shopping-cart-demo.js"></script>
+</body>
+</html>
