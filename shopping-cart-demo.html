@@ -9,7 +9,8 @@
 
 </head>
 <body>
-<div id="shoppingCart">
+
+<div id="shoppingCart" v-cloak>
     <div class="item" v-if="itemPriceData.length">
         <table class="shopping-cart-table">
             <thead>
@@ -23,7 +24,7 @@
             </tr>
             </thead>
             <tbody>
-            <tr v-for="(itemList,index) in itemPriceData " v-cloak>
+            <tr v-for="(itemList,index) in itemPriceData ">
                 <td>
                     <button @click="removeItem(index)">{{index+1}}</button>
                 </td>
@@ -47,6 +48,7 @@
     </div>
     <div class="empty-box" v-else>穷*！购物车里都没东西，跟咸鱼有什么分别！</div>
 </div>
+
 <script src="node_modules/vue/dist/vue.js"></script>
 <script src="js/shopping-cart-demo.js"></script>
 </body>
