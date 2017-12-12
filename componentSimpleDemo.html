@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
     <title>Component</title>
-    <link rel="stylesheet" href="css/my-counter.css">
+    <link rel="stylesheet" href="css/component-counter.css">
 
 </head>
 <body>
@@ -12,10 +12,16 @@
     <my-counter></my-counter>
     <my-counter></my-counter>
     <my-counter></my-counter>
+    <div>
+        <input type="text" v-model="imsg">
+    </div>
+    <p>下面就是组件内容了</p>
+    <component-demo-two :message="msg" :imsg="imsg"></component-demo-two>
 </div>
 <script src="node_modules/vue/dist/vue.js"></script>
-<script src="js/component-counter.js"></script>
-<script src="js/componentDemo.js"></script>
+<script src="js/components/componentCounter.js"></script>
+<script src="js/components/componentDemo2.js"></script>
+<script src="js/componentSimpleDemo.js"></script>
 
 </body>
 </html>

@@ -21,6 +21,6 @@ function changeFuture() {
 }
 
 function changeWorld() {
-    document.getElementById('myHeader').innerHTML = document.getElementById('myHeaderInput').value;
+    document.getElementById('helloTxt').innerHTML = document.getElementById('myHeaderInput').value;
 
 }

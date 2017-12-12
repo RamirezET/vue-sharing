@@ -9,4 +9,4 @@ Vue.component('my-counter', {
             counter: 0
         }
     }
-})
+});
