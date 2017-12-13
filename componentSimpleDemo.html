@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
     <title>Component</title>
-    <link rel="stylesheet" href="css/shopping-cart-demo.css">
+    <link rel="stylesheet" href="css/components/component-shopping-cart-demo.css">
     <link rel="stylesheet" href="css/component-counter.css">
 
 </head>
@@ -19,7 +19,8 @@
     <p>下面就是组件内容了</p>
     <component-demo-two :message="msg" :imsg="imsg"></component-demo-two>
     <div>
-        <button @click="newShopping()">换一波</button>
+        <button @click="addShoppingItem()">加一波</button>
+        <button @click="reduceShoppingItem()">减一波</button>
     </div>
     <component-demo-shopping-cart :itempricelist="itemPriceData"></component-demo-shopping-cart>
 </div>
@@ -27,7 +28,7 @@
 <script src="js/components/componentCounter.js"></script>
 <script src="js/components/componentDemo2.js"></script>
 <script src="js/components/componentDemoShoppingCart.js"></script>
-<script src="js/componentSimpleDemo.js"></script>
+<script src="js/simpleComponentDemo.js"></script>
 
 </body>
 </html>

@@ -2,7 +2,7 @@
  * Created by Ramirez on 12/13/2017.
  */
 
-Vue.component('component-demo-shopping-cart', {
+Vue.component('component-demo-comment', {
     template: '<div id="shoppingCart" v-cloak>' +
     '    <div class="item" v-if="itempricelist.length">' +
     '        <table class="shopping-cart-table">' +
