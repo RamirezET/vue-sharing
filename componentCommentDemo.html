@@ -3,13 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-    <title>Component</title>
+    <title>评论</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="css/components/component-comment.css">
 
 </head>
 <body>
-<div id="demo" style="text-align: center">
+<div id="demo">
+    <!--<component-demo-shopping-cart :itempricelist="itemPriceData"></component-demo-shopping-cart>-->
+    <div class="component-comment-area">
+        <div class="split-line">
+            <i></i>
+            <p>评论区</p>
+        </div>
+        <div class="comment-list">
+            <div class="comment-list-left">
+                <img src="http://zhongjingdashi.oss-cn-beijing.aliyuncs.com//images/20171211121101.jpg" alt="">
+            </div>
+            <div class="comment-list-right">
+                <p class="comment-list-right-name">乖宝宝</p>
+                <p class="comment-list-right-comment">饿了热Tim我有</p>
+                <div class="comment-list-right-bottom">
+                    <div class="comment-list-right-bottom-left">
+                        <div class="comment-list-right-bottom-left-datetime">2天前</div>
+                        <div class="comment-list-right-bottom-right-deletebtn">删除</div>
+                    </div>
+                    <div class="comment-list-right-bottom-right">
 
-    <component-demo-shopping-cart :itempricelist="itemPriceData"></component-demo-shopping-cart>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
 <script src="node_modules/vue/dist/vue.js"></script>
 <script src="node_modules/axios/dist/axios.js"></script>
