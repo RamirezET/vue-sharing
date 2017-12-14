@@ -34,7 +34,8 @@ Vue.component('component-demo-comment', {
     '                    <div class="comment-list-right-bottom-left">\n' +
     '                        <div class="comment-list-right-bottom-left-datetime">{{commentListItem.createDate}}</div>\n' +
     '                        <div class="comment-list-right-bottom-right-deletebtn"\n' +
-    '                             @click="deleteComment(commentListItem.movieCommentId,index)">删除\n' +
+    '                             @click="deleteComment(commentListItem.movieCommentId,index)"' +
+    '                             v-if="commentListItem.userId==userinfo.userId">删除\n' +
     '                        </div>\n' +
     '                    </div>\n' +
     '                    <div class="comment-list-right-bottom-right">\n' +
@@ -53,7 +54,7 @@ Vue.component('component-demo-comment', {
     '            </div>\n' +
     '        </div>\n' +
     ' </div>',
-    props: ['commentlistdata', 'accseetoken'],
+    props: ['commentlistdata', 'accseetoken', 'userinfo'],
     methods: {
         goToCommentPage: function (movieCommentId) {
             console.log(movieCommentId);
