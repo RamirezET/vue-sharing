@@ -25,7 +25,7 @@ var pageIndex = 1;
 				pageIndex : pageIndex
 			};
 			API_CALL("GET", dashi_api_url
-					+ "/movie-personalCenter-resource/getMyFans", param,
+					+ "/movie-personalCenter-images/getMyFans", param,
 					function(data) {
 						if (!data.hasError) {
 							if (data.result.result.length > 0) {
@@ -118,7 +118,7 @@ $(function(){
    		if('fans'!==a || flg){
    			isSubmit=false;
    	   		var param={userId:$(this).attr("userIdhide"),flag:flg};
-   			API_CALL("POST", dashi_api_url+"/movie-personalCenter-resource/allowFollow",param,function(data){
+   			API_CALL("POST", dashi_api_url+"/movie-personalCenter-images/allowFollow",param,function(data){
    				isSubmit=true;
    			
    			})

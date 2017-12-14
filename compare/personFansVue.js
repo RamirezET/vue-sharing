@@ -57,7 +57,7 @@ var vm = new Vue({
         	        flag:true
         	    };
 	            self.canClick = false;
-        	    API_CALL("POST", dashi_api_url + "/movie-personalCenter-resource/allowFollow", param, function(data) {
+        	    API_CALL("POST", dashi_api_url + "/movie-personalCenter-images/allowFollow", param, function(data) {
         	        if (data != null && !data.hasError) {
                 	    self.pdlist[index].isFollow=!self.pdlist[index].isFollow; 
         	            if (self.pdlist.length < 1) {
@@ -77,7 +77,7 @@ function getMyFansList(pageNum, successCallback) {
         pageIndex:pageNum
     };
     setTimeout(function() {
-        API_CALL("GET", dashi_api_url + "/movie-personalCenter-resource/getMyFans", param, function(data) {
+        API_CALL("GET", dashi_api_url + "/movie-personalCenter-images/getMyFans", param, function(data) {
             if (!data.hasError) {
                 successCallback(data.result);
             } else if (data.hasError == true && data.code == "40302") {

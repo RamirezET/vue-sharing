@@ -1,3 +1,7 @@
+[v-cloak] {
+    display: none !important;
+}
+
 .component-comment-area {
     padding: 10px 10px 0px 10px;
 }
@@ -36,7 +40,7 @@
     display: flex;
     display: -webkit-flex;
     flex-direction: row;
-    padding: 10px 0;
+    padding: 12px 0;
 }
 
 .component-comment-area .comment-list-left {
@@ -77,6 +81,43 @@
     margin-bottom: 0;
 }
 
+.component-comment-area .comment-list-right-img-box {
+    width: 100%;
+}
+
+.component-comment-area .comment-list-right-img-item {
+    float: left;
+    width: 32.4%;
+    height: 100px;
+    margin-right: 1.4%;
+    margin-bottom: 1.4%;
+    background-image: url(../../images/placeholder-pic-small.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.component-comment-area .comment-list-right-video-box {
+    width: 100%;
+}
+
+.component-comment-area .comment-list-right-video-box video {
+    height: 182px;
+    object-position: center center;
+    width: 100%;
+}
+
+.component-comment-area .comment-list-right-img-item:nth-child(3n) {
+    margin-right: 0;
+}
+
+.component-comment-area .comment-list-right-img-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
 .component-comment-area .comment-list-right-bottom {
     display: flex;
     display: -webkit-flex;
@@ -90,6 +131,7 @@
     display: -webkit-flex;
     flex-direction: row;
     font-size: 1.0rem;
+    line-height: 21px;
 }
 
 .component-comment-area .comment-list-right-bottom-left-datetime {
@@ -102,4 +144,18 @@
 
 .component-comment-area .comment-list-right-bottom-right {
     width: 60%;
+}
+
+.component-comment-area .comment-list-right-bottom-right div {
+    float: right;
+    margin-left: 15px;
+    font-size: 1.3rem;
+    color: #61636d;
+    display: inline-block;
+    line-height: 21px;
+}
+
+.component-comment-area .comment-list-right-bottom-right div img {
+    width: 16px;
+    margin-bottom: 4px;
 }
