@@ -10,56 +10,7 @@
 </head>
 <body>
 <div id="demo">
-    <!--<component-demo-shopping-cart :itempricelist="itemPriceData"></component-demo-shopping-cart>-->
-    <div class="component-comment-area">
-        <div class="split-line">
-            <i></i>
-            <p>评论区</p>
-        </div>
-        <div class="comment-list" v-if="commentListData" v-for="(commentListItem,index) in commentListData"
-             :key="commentListItem.movieCommentId" v-cloak>
-            <div class=" comment-list-left">
-                <img :src="commentListItem.userHeadImg" alt="">
-            </div>
-            <div class="comment-list-right">
-                <p class="comment-list-right-name">{{commentListItem.userNickName}}</p>
-                <p class="comment-list-right-comment">{{commentListItem.comment}}</p>
-                <div class="comment-list-right-img-box" v-if="commentListItem.commentImg">
-                    <div class="comment-list-right-img-item"
-                         v-for="commentImage in commentListItem.commentImg.split(',')">
-                        <img :src="commentImage" alt="">
-                    </div>
-                    <div class="clearfix"></div>
-                </div>
-                <div class="comment-list-right-video-box" v-if="commentListItem.commentVideo">
-                    <video controls="" x5-video-player-type="h5" x5-video-player-fullscreen="true"
-                           playsinline="true" height="182">
-                        <source :src="commentListItem.commentVideo" type="video/mp4">
-                    </video>
-                </div>
-                <div class="comment-list-right-bottom">
-                    <div class="comment-list-right-bottom-left">
-                        <div class="comment-list-right-bottom-left-datetime">{{commentListItem.createDate}}</div>
-                        <div class="comment-list-right-bottom-right-deletebtn"
-                             @click="deleteComment(commentListItem.movieCommentId,index)">删除
-                        </div>
-                    </div>
-                    <div class="comment-list-right-bottom-right">
-                        <div class="comment-list-right-bottom-right-like">
-                            <img :src="commentListItem.isLike|isLike" alt=""
-                                 @click="addLike(commentListItem.movieCommentId,index)">
-                            <span>{{commentListItem.likeNum}}</span>
-                        </div>
-                        <div class="comment-list-right-bottom-right-comment">
-                            <img src="images/comment.png" alt=""
-                                 @click="goToCommentPage(commentListItem.movieCommentId)">
-                            <span>{{commentListItem.commentNum}}</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <component-demo-comment :commentlistdata="commentListData" :accseetoken="accessToken"></component-demo-comment>
 </div>
 <script src="node_modules/vue/dist/vue.js"></script>
 <script src="node_modules/axios/dist/axios.js"></script>
