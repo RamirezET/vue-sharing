@@ -6,7 +6,9 @@ var vm = new Vue({
     data: {
         commentListData: [],
         accessToken: "",
-        userInfo: {}
+        userInfo: {},
+        startComment: false,
+        mescroll: {}
     },
     mounted: function () {
         var self = this;
@@ -25,87 +27,85 @@ var vm = new Vue({
         getMovieCommentListVue: function (page) {
             var self = this;
             if (!localStorage.accessToken) {
-                getAccessToken(function (accessToken) {
+                self.getAccessToken(function (accessToken) {
                     self.accessToken = accessToken.data.result;
-                    loginFunc(self.accessToken, function (loginInfo) {
+                    self.loginFunc(self.accessToken, function (loginInfo) {
                         self.userInfo = loginInfo.data.userInfo;
                         localStorage.accessToken = JSON.stringify(accessToken.data.result);
-                        getMovieCommentList(self.accessToken, 1, function (movieCommentList) {
+                        self.getMovieCommentList(self.accessToken, 1, function (movieCommentList) {
                             self.commentListData = movieCommentList.data.result.result;
                         });
                     });
                 });
             } else {
-                getMovieCommentList(JSON.parse(localStorage.accessToken), page.num, function (movieCommentList) {
+                self.accessToken = JSON.parse(localStorage.accessToken);
+                self.getMovieCommentList(JSON.parse(localStorage.accessToken), page.num, function (movieCommentList) {
                     if (page.num == 1) self.commentListData = [];
                     self.commentListData = self.commentListData.concat(movieCommentList.data.result.result);
                     self.mescroll.endSuccess(movieCommentList.data.result.result.length);
                 });
             }
-        }
+        },
+        getAccessToken: function (callback) {
+            axios({
+                url: "https://api.dashimedia.cn/rest/movie-common-resource/getAccessToken",
+                method: "POST",
+                data: {
+                    appId: "QkY5REU5MEYzMkNGMTM3Qg=="
+                },
+                transformRequest: [function (data) {
+                    let ret = "";
+                    for (let it in data) {
+                        ret += encodeURIComponent(it) + "=" + encodeURIComponent(data[it]) + "&";
+                    }
+                    return ret;
+                }],
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded"
+                }
+            }).then(function (accessToken) {
+                callback(accessToken);
+            }).catch(function (error) {
+                console.log(error);
+            });
+        },
+        loginFunc: function (accessToken, callback) {
+            axios({
+                url: "https://api.dashimedia.cn/rest/movie-login-resource/ajaxLogin",
+                method: "POST",
+                data: {
+                    userPhone: "15029972629",
+                    loginPassword: "96e79218965eb72c92a549dd5a330112",
+                    accessToken: accessToken
+                },
+                transformRequest: [function (data) {
+                    let ret = "";
+                    for (let it in data) {
+                        ret += encodeURIComponent(it) + "=" + encodeURIComponent(data[it]) + "&";
+                    }
+                    return ret;
+                }],
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded"
+                }
+            }).then(function (loginInfo) {
+                callback(loginInfo);
+            }).catch(function (error) {
+                console.log(error);
+            });
+        },
+        getMovieCommentList: function (accessToken, pageIndex, callback) {
+            axios.get("https://api.dashimedia.cn/rest/movie-bigMovie-resource/getMovieCommentList", {
+                params: {
+                    movieId: "7e663495-aa04-4663-89c1-f52055cfadbc",
+                    accessToken: accessToken,
+                    pageIndex: pageIndex
+                }
+            }).then(function (movieCommentList) {
+                callback(movieCommentList);
+            }).catch(function (error) {
+                console.log(error);
+            });
+        },
     }
 });
-
-function getAccessToken(callback) {
-    axios({
-        url: "https://api.dashimedia.cn/rest/movie-common-resource/getAccessToken",
-        method: "POST",
-        data: {
-            appId: "QkY5REU5MEYzMkNGMTM3Qg=="
-        },
-        transformRequest: [function (data) {
-            let ;
-            ret = "";
-            for (let ; it in data;
-        )
-            {
-                ret += encodeURIComponent(it) + "=" + encodeURIComponent(data[it]) + "&";
-            }
-            return ret;
-        }],
-        headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
-        }
-    }).then(function (accessToken) {
-        callback(accessToken);
-    });
-}
-
-function loginFunc(accessToken, callback) {
-    axios({
-        url: "https://api.dashimedia.cn/rest/movie-login-resource/ajaxLogin",
-        method: "POST",
-        data: {
-            userPhone: "15029972629",
-            loginPassword: "96e79218965eb72c92a549dd5a330112",
-            accessToken: accessToken
-        },
-        transformRequest: [function (data) {
-            let ;
-            ret = "";
-            for (let ; it in data;
-        )
-            {
-                ret += encodeURIComponent(it) + "=" + encodeURIComponent(data[it]) + "&";
-            }
-            return ret;
-        }],
-        headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
-        }
-    }).then(function (loginInfo) {
-        callback(loginInfo);
-    });
-}
-
-function getMovieCommentList(accessToken, pageIndex, callback) {
-    axios.get("https://api.dashimedia.cn/rest/movie-bigMovie-resource/getMovieCommentList", {
-        params: {
-            movieId: "7e663495-aa04-4663-89c1-f52055cfadbc",
-            accessToken: accessToken,
-            pageIndex: pageIndex
-        }
-    }).then(function (movieCommentList) {
-        callback(movieCommentList);
-    });
-}

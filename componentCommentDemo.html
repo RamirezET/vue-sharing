@@ -4,20 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
     <title>评论</title>
+    <!--外部库样式-->
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
-    <link rel="stylesheet" href="css/components/component-comment.css">
     <link rel="stylesheet" href="node_modules/mescroll.js/mescroll.min.css">
+    <!--组件样式-->
+    <link rel="stylesheet" href="css/components/component-comment.css">
+    <link rel="stylesheet" href="css/components/component-comment-button.css">
+
 
 </head>
 <body>
 <div id="mescroll" class="mescroll">
+    <!--评论列表组件-->
+    <!--传入commentListData为列表数据，传入accessToken用于点赞等操作，传入userInfo用于判断是否是本人发布的评论-->
     <component-demo-comment :commentlistdata="commentListData" :accseetoken="accessToken"
                             :userinfo="userInfo"></component-demo-comment>
+    <!--点击评论组件-->
+    <!--传入startComment控制是否显示评论的层，传入accessToken用于发布评论，传入mescroll用于发布评论后重置列表为第一页-->
+    <component-demo-comment-btn :startcomment="startComment" :accseetoken="accessToken" :mescroll="mescroll"
+                                @update:startcomment="val => startComment = val"></component-demo-comment-btn>
 </div>
+
+<!--引用外部库-->
 <script src="node_modules/mescroll.js/mescroll.m.js"></script>
 <script src="node_modules/vue/dist/vue.js"></script>
 <script src="node_modules/axios/dist/axios.js"></script>
+<!--组件-->
 <script src="js/components/componentDemoComment.js"></script>
+<script src="js/components/component-comment-button.js"></script>
+<!--页面JS-->
 <script src="js/simpleComponentDemo.js"></script>
 
 </body>

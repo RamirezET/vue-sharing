@@ -58,11 +58,12 @@ Vue.component('component-demo-comment', {
     methods: {
         goToCommentPage: function (movieCommentId) {
             console.log(movieCommentId);
+            console.log(this.userInfo);
         },
         addLike: function (movieCommentId, index) {
             var self = this;
             axios({
-                url: 'http://10.30.3.124:8080/rest.web/rest/movie-bigMovie-resource/addMovieCommentThumbsUp',
+                url: 'https://api.dashimedia.cn/rest/movie-bigMovie-resource/addMovieCommentThumbsUp',
                 method: 'POST',
                 data: {
                     movieCommentId: movieCommentId,
@@ -91,7 +92,7 @@ Vue.component('component-demo-comment', {
         deleteComment: function (commentId, index) {
             var self = this;
             axios({
-                url: 'http://10.30.3.124:8080/rest.web/rest/movie-comment-resource/deleteComment',
+                url: 'https://api.dashimedia.cn/rest/movie-comment-resource/deleteComment',
                 method: 'POST',
                 data: {
                     commentId: commentId,
