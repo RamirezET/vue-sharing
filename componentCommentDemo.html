@@ -6,13 +6,15 @@
     <title>评论</title>
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="css/components/component-comment.css">
+    <link rel="stylesheet" href="node_modules/mescroll.js/mescroll.min.css">
 
 </head>
 <body>
-<div id="demo">
+<div id="mescroll" class="mescroll">
     <component-demo-comment :commentlistdata="commentListData" :accseetoken="accessToken"
                             :userinfo="userInfo"></component-demo-comment>
 </div>
+<script src="node_modules/mescroll.js/mescroll.m.js"></script>
 <script src="node_modules/vue/dist/vue.js"></script>
 <script src="node_modules/axios/dist/axios.js"></script>
 <script src="js/components/componentDemoComment.js"></script>
