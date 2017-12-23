@@ -21,5 +21,27 @@ Vue.component('input-number', {
         return {
             currentValue: this.value
         }
+    },
+    watch: {
+        currentValue: function (val) {
+            this.$emit('input', val);
+            this.$emit('on-change', val)
+        },
+        value: function () {
+            this.updateValue(val);
+        }
+    },
+    methods: {
+        updateValue: function (val) {
+            if (val > this.max) {
+                val = this.max
+            } else if (val < this.min) {
+                val = this.min
+            }
+            this.currentValue = val;
+        }
+    },
+    mounted: function () {
+        this.updateValue(this.value)
     }
 });
