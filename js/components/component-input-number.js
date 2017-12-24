@@ -2,7 +2,7 @@
  * Created by Ramirez on 12/23/2017.
  */
 Vue.component('input-number', {
-    template: '<div class="input-number"></div>',
+    template: '<div class="input-number"><input type="number" :value="currentValue"></div>',
     props: {
         max: {
             type: Number,
@@ -24,10 +24,12 @@ Vue.component('input-number', {
     },
     watch: {
         currentValue: function (val) {
+            console.log(val);
             this.$emit('input', val);
             this.$emit('on-change', val)
         },
-        value: function () {
+        value: function (val) {
+            console.log(val);
             this.updateValue(val);
         }
     },

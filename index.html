@@ -9,7 +9,11 @@
 </head>
 <body>
 <div id="app">
-    <input-number v-model="value" :max="10" :min="0"></input-number>
+    <label>
+        <input type="number" v-model="value">
+    </label>
+    <p>{{value}}</p>
+    <input-number v-model="value" :max=10 :min=0></input-number>
 </div>
 <script src="node_modules/vue/dist/vue.js"></script>
 <script src="js/components/component-input-number.js"></script>
