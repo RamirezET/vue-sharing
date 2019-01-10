@@ -11,7 +11,7 @@
 <body>
 
 <div id="shoppingCart" v-cloak>
-    <div class="item" v-if="itemPriceData.length">
+    <div class="item" v-if="itemPriceData.length>0&!ifLoading">
         <table class="shopping-cart-table">
             <thead>
             <tr>
@@ -46,10 +46,11 @@
         </table>
         <div class="total-price">总价格：¥{{totalPrice}}</div>
     </div>
-    <div class="empty-box" v-else>穷*！购物车里都没东西，跟咸鱼有什么分别！</div>
+    <div class="empty-box" v-else-if="itemPriceData.length==0&&!ifLoading">穷*！购物车里都没东西，跟咸鱼有什么分别！</div>
+    <div class="empty-box" v-if='ifLoading'>loading</div>
 </div>
 
-<script src="node_modules/vue/dist/vue.js"></script>
+<script src="node_modules/vue/dist/vue.min.js"></script>
 <script src="js/shoppingCartDemo.js"></script>
 </body>
 </html>

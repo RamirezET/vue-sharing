@@ -1,7 +1,9 @@
 [v-cloak] {
     display: none;
 }
-
+.item{
+    transition: all .5s
+}
 .shopping-cart-table {
     margin: 10px auto;
     empty-cells: show;
@@ -48,11 +50,13 @@
     background-color: transparent;
     border: 1px solid #444;
     outline: none;
+    transition: background-color .5s
 }
 
 .shopping-cart-table .item-count button[disabled] {
-    background-color: #999;
+    background-color: rgba(153, 153, 153, 0.856);
     color: #fff;
+    transition: background-color .5s
 }
 
 .total-price {
